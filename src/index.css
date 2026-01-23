@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: theme('fontFamily.body');
+}
+
+body.theme-dark {
+  background: radial-gradient(circle at top, #111827 0, #020617 45%, #020617 100%);
+  color: #e5e7eb;
+}
+
+body.theme-light {
+  background: #f9fafb;
+  color: #020617;
+}
+
+/* Light theme overrides for utility-based colors across all sections */
+body.theme-light .bg-background {
+  background-color: #f9fafb !important;
+}
+
+body.theme-light .bg-surfaceAlt,
+body.theme-light .glass-panel {
+  background-color: #ffffff !important;
+}
+
+body.theme-light .bg-surfaceAlt\/40,
+body.theme-light .bg-surfaceAlt\/50,
+body.theme-light .bg-surfaceAlt\/60,
+body.theme-light .bg-surfaceAlt\/70,
+body.theme-light .bg-surfaceAlt\/80 {
+  background-color: #ffffff !important;
+}
+
+body.theme-light .bg-background\/80 {
+  background-color: #e5e7eb !important;
+}
+
+body.theme-light .bg-background\/70 {
+  /* soft violet inspired by primary button color */
+  background-color: #ede9ff !important; /* light purple */
+}
+
+body.theme-light .text-foreground {
+  color: #020617 !important;
+}
+
+body.theme-light .text-muted {
+  color: #6b7280 !important;
+}
+
+body.theme-light .border-border {
+  border-color: #e5e7eb !important;
+}
+
+/* Improve contrast for headings and pills in light mode */
+body.theme-light .section-title {
+  color: #4f46e5 !important; /* indigo-600 */
+}
+
+body.theme-light .section-heading {
+  color: #020617 !important;
+}
+
+body.theme-light .tag-pill {
+  background-color: #eef2ff !important; /* indigo-50 */
+  border-color: #c7d2fe !important;     /* indigo-200 */
+  color: #4b5563 !important;            /* gray-600 */
+}
+
+body.theme-light .glass-panel {
+  border-color: #e5e7eb !important;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
+}
+
+/* Ensure strong readability specifically in About and Contact sections */
+body.theme-light #about,
+body.theme-light #contact {
+  color: #020617 !important;
+}
+
+body.theme-light #about .text-foreground,
+body.theme-light #contact .text-foreground {
+  color: #020617 !important;
+}
+
+body.theme-light #about .text-muted,
+body.theme-light #contact .text-muted {
+  color: #374151 !important; /* darker gray for better contrast */
+}
+
+/* About section cards - ensure light backgrounds and readable text in light theme */
+body.theme-light #about .bg-gradient-to-br {
+  background: linear-gradient(to bottom right, #ffffff, #f3f4f6, #ffffff) !important;
+}
+
+body.theme-light #about .border-border\/70 {
+  border-color: #d1d5db !important;
+}
+
+body.theme-light #about article {
+  background: linear-gradient(to bottom right, #ffffff, #f9fafb, #ffffff) !important;
+}
+
+body.theme-light #about article .text-foreground {
+  color: #111827 !important;
+}
+
+body.theme-light #about article .text-muted {
+  color: #4b5563 !important;
+}
+
+.glass-panel {
+  @apply bg-surfaceAlt/80 border border-border/60 backdrop-blur-xl rounded-3xl shadow-xl shadow-indigo-950/40;
+}
+
+.section-title {
+  @apply text-sm tracking-[0.25em] uppercase text-primarySoft font-semibold;
+}
+
+.section-heading {
+  @apply text-3xl sm:text-4xl md:text-5xl font-semibold text-foreground;
+}
+
+.tag-pill {
+  @apply inline-flex items-center gap-2 rounded-full border border-border/80 bg-surfaceAlt/80 px-3 py-1 text-xs font-medium text-muted;
+}
+
+/* Logo animation delays */
+@keyframes pulse-delay {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.delay-1000 {
+  animation-delay: 1s;
+}
+
+/* Remove white background from logo */
+#home img[src="/logo.png"],
+img[alt="Yozora Technologies Logo"] {
+  background: transparent !important;
+  mix-blend-mode: normal;
+}
+
+/* AI Effects Animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(-45deg);
+  }
+  100% {
+    transform: translateX(200%) translateY(200%) rotate(-45deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
